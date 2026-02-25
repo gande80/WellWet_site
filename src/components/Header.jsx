@@ -1,22 +1,32 @@
+
+
+
 import React from 'react'
-import Logo from "./../assets/Logo.svg"
+
 const HeaderComponent = () => {
   return (
 
-    <div className='w-[1440px] bg-white mx-auto relative'>
-      <div className='flex items-center justify-between'>
-        <img src={Logo} alt="Logo" className='flex flex-col' />
-           <div className='flex flex-wrap md:gap-6 lg:gap-8 xl:gap-10 items-center '>
-                <a href=''>Услуги</a>
-                <a href=''>О нас</a>
-                <a href=''>Польза продукта</a>
-                <a href=''>Оборудывание</a>
-                <a href=''>Этапы работы</a>
-                <a href=''>Отзывы</a>
-            </div>
-            <button className='text-white py-2 md:py-3 px-6 md:px-8 bg-[#5CCD6A] rounded-2xl shadow-[0_210px_75px_rgba(0,0,0,0,0.25)]'>Связатся</button>
+ <header className='bg-white shadow-sm'>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center'>
+          <a href='*' className='font-test text-4xl'>WellWet</a>
+
+          <div className='md:flex items-center gap-10'>
+            <div className='sm:block border border-[#F3F4F6] bg-[#F3F4F6] rounded-xl '>
+               <button className=  'px-7 py-3 text-black hover:text-wellwet-green'>
+                Войти
+              </button>
+              </div>
+            <div className='flex items-center gap-5'>
+            <div className='px-7 py-3 border border-[#06B2D3] bg-[#06B2D3] rounded-xl'>
+              <button className='text-white hover:text-wellwet-green'>
+              Регистрация
+              </button>
+              </div>
+          </div>
         </div>
     </div>
+  </header>
+  
   )
 }
 

@@ -1,6 +1,20 @@
-@import "tailwindcss";
-.bj_image {
-    background: url("./assets/up-bg.jpg");
-    background-size: cover;
-    background-position: center;
+@font-face {
+  font-family: test;
+  src: url("../src/assets/fonts/PlayfairDisplay-Italic.ttf");
 }
+
+@font-face {
+  font-family: inter;
+  src: url("../src/assets/fonts/Inter-VariableFont_opsz\,wght.ttf");
+}
+@import "tailwindcss";
+
+@theme {
+  --font-test: test, "sans-serif";
+}
+
+@theme {
+  --font-inter: inter, "sans-serif";
+}
+
+
