@@ -3,12 +3,13 @@
 
 import React from 'react'
 
+
 const HeaderComponent = () => {
   return (
 
  <header className='bg-white shadow-sm'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center'>
-          <a href='*' className='font-test text-4xl'>WellWet</a>
+          <a href='/Catalog' className='font-test text-4xl'>WellWet</a>
 
           <div className='md:flex items-center gap-10'>
             <div className='sm:block border border-[#F3F4F6] bg-[#F3F4F6] rounded-xl '>
