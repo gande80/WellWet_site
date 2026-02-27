@@ -31,14 +31,14 @@ export default function Help_us() {
           <p className="text-slate-600 mb-10">
             Мы поможем разобраться с выбором корма и ответим на вопросы о продукции WellWet.
           </p>
-          <form className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <form className="space-y-8 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full  ">
               <div>
 
                 <input
                   type="text"
                   placeholder="Ваше имя"
-                  className="w-full  border-b bg-[#ECECEC] transition-colors"/>
+                  className="px-12 py-4  rounded-2xl  bg-[#ECECEC] transition-colors"/>
 
               </div>
 
@@ -48,14 +48,14 @@ export default function Help_us() {
                 <input
                   type="text"
                   placeholder="E-mail или телефон"
-                  className="w-full border-b  transition-colors bg-[#F2F2F2]"/>
+                  className="px-12 py-4 rounded-2xl mx-17  transition-colors bg-[#F2F2F2]"/>
                   
               </div>
             </div>
 
             <div>
 
-              <select className="w-full bg-[#F2F2F2] border-b focus:outline-none transition-colors appearance-none" >
+              <select className="w-full bg-[#F2F2F2] rounded-2xl focus:outline-none transition-colors appearance-none" >
                 <option value="" disabled selected>Тип организации</option>
                 <option value="Kom">Комерческая</option>
                 <option value="Dont comm">Некомерческая</option>
@@ -65,7 +65,7 @@ export default function Help_us() {
 
             <div>
               
-              <textarea placeholder="Ваш вопрос или комментарий" rows="3" className="w-full bg-[#F2F2F2] border-b focus:outline-none transition-colors resize-none"></textarea>
+              <textarea placeholder="Ваш вопрос или комментарий" rows="3" className="w-full bg-[#F2F2F2] rounded-2xl focus:outline-none transition-colors resize-none"></textarea>
             
             </div>
 

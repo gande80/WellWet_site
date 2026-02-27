@@ -1,9 +1,9 @@
 import Card_photo from './../assets/card.jpg'
-
-
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function catalog() {
   const products = Array(8).fill(null);
-
+  const navigate = useNavigate();
   return (
 
     <div className="min-h-screen bg-white font-sans text-[#333]">
@@ -43,9 +43,10 @@ export function CatalogCard() {
       <div className="w-full text-left">
         <h3 className="text-[#333] text-[14px] font-bold">WellWet Holistic</h3>
         <p className="text-gray-400 text-[11px] mt-1 ">Для собак с чувствительным пищеварением</p>
-        <button className="w-full mt-4 bg-[#33c9db]  text-white py-2 rounded-md text-[13px] font-medium ">
+        <button onClick={() => window.location.href = '/Card'} className="w-full mt-4 bg-[#33c9db]  text-white py-2 rounded-md text-[13px] font-medium ">
           Смотреть
         </button>
+
       </div>
     </div>
   );
