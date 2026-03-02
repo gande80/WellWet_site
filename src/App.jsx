@@ -9,11 +9,11 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
+        <BrowserRouter>
       <Routes>
 
-        <Route path="" element={<CatalogComponent />} />
-        <Route path="/card" element={<MainComponent/>} />
+<Route path="/" element={<CatalogComponent />} />
+  <Route path="/product/:id" element={<MainComponent />} />
       </Routes>
     </BrowserRouter>
 

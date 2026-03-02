@@ -14,9 +14,8 @@ const main = () => {
 
     <CatalogComponent/>
 
-
     <FooterComponent/>
-    
+ 
   </>
   
 
