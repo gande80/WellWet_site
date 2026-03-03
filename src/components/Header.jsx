@@ -13,7 +13,7 @@ const HeaderComponent = () => {
 
           <div className='md:flex items-center gap-10'>
             <div className='sm:block border border-[#F3F4F6] bg-[#F3F4F6] rounded-xl '>
-               <button className=  'px-7 py-3 text-black hover:text-wellwet-green'>
+               <button onClick={() => window.location.href = '/auth'}  className=  'px-7 py-3 text-black  hover:text-wellwet-green rounded-xl hover:bg-[#f3f4f6a8] transition'>
                 Войти
               </button>
               </div>

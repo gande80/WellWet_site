@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import MainComponent from './components/Main'
 import CatalogComponent from './components/catalog/CatalogCom';
+import AuthComponent from './components/auth/Auth';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './index.css'
 

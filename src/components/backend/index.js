@@ -61,3 +61,35 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log("Сервер запущен на порту", {PORT});
 });
+
+app.post('/api/register', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const newUser = await pool.query(
+      'INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *',
+      [email, password]
+    );
+    res.json(newUser.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: "Email уже занят" });
+  }
+});
+
+app.post('/api/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+
+    if (user.rows.length === 0 || user.rows[0].password !== password) {
+      return res.status(401).json({ error: "Неверный логин или пароль" });
+    }
+
+    res.json({ 
+      id: user.rows[0].id, 
+      email: user.rows[0].email, 
+      isAdmin: user.rows[0].is_admin 
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
