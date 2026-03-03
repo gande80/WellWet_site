@@ -1,7 +1,7 @@
 // import Header from '../components/Header';
 // import Footer from '../components/Footer';
-import leaf from './../assets/leaf.jpg'
-import arrow from './../assets/arrow-right.svg'
+import leaf from '/leaf.jpg'
+import arrow from '/arrow-right.svg'
 import Card_product from './card_product'
 
 
@@ -55,7 +55,7 @@ export default function Help_us() {
 
             <div>
 
-              <select className="w-full bg-[#F2F2F2] rounded-2xl focus:outline-none transition-colors appearance-none" >
+              <select className="px-12 py-4  rounded-2xl bg-[#F2F2F2] w-full focus:outline-none transition-colors appearance-none" >
                 <option value="" disabled selected>Тип организации</option>
                 <option value="Kom">Комерческая</option>
                 <option value="Dont comm">Некомерческая</option>

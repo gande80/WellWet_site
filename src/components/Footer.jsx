@@ -1,4 +1,4 @@
-import Line from "./../assets/Line1.svg"
+import Line from "/Line1.svg"
 export default function Footer(){
     return(
         

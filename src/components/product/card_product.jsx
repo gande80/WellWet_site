@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import corm from '/korm.jpg'
-import Accordion from "./Accordion";
+import Accordion from "./../Accordion";
 
 export default function Card() {
   const { id } = useParams(); 

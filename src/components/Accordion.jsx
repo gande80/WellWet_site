@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import hand from './../assets/paw-print.svg'
+import hand from '/paw-print.svg'
 const Accordion = ({ title, answer,  }) => {
   const [accordionOpen, setAccordionOpen] = useState(false);
 
@@ -10,7 +10,6 @@ const Accordion = ({ title, answer,  }) => {
         className="flex justify-between gap-3  text-center w-full  px-4 py-3 "
       >
         <span className="text-center">{title}</span>
-        {/* {accordionOpen ? <span>-</span> : <span>+</span>} */}
         <img
           className=""
           src={hand}

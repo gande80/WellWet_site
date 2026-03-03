@@ -11,7 +11,7 @@ app.use(express.json());
 app.get('/api/products', async (req, res) => {
     try {
         const allProducts = await pool.query(
-            'SELECT id, name, short_description, image_url, price FROM products ORDER BY id ASC'
+            'SELECT id, name, short_description, image_url, category_id FROM products ORDER BY id ASC'
         );
         res.json(allProducts.rows);
     } catch (err) {

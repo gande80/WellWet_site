@@ -1,7 +1,7 @@
 import React from 'react'
-import HeaderComponent from './Header';
+import HeaderComponent from '../Header';
 import CatalogComponent from './Catalog';
-import FooterComponent from './Footer';
+import FooterComponent from '../Footer';
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
