@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
@@ -12,7 +13,7 @@ export default function Auth() {
     const endpoint = isLogin ? 'login' : 'register';
     
     try {
-      const res = await fetch(`http//localhost5000/api/${endpoint}`, {
+      const res = await fetch(`http://localhost:5000/api/${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -21,12 +22,12 @@ export default function Auth() {
       const data = await res.json();
 
       if (res.ok) {
+          localStorage.setItem('user', JSON.stringify(data));
+          // window.location.reload();
         if (isLogin) {
           if (data.isAdmin) {
-            navigate('/admin');
-          } else {
             navigate('/');
-          }
+          } 
         } else {
           setIsLogin(true);
           alert('Регистрация прошла успешно! Теперь войдите.');
@@ -40,6 +41,7 @@ export default function Auth() {
   };
 
   return (
+    
     <div className="min-h-screen flex items-center justify-center bg-gray-50 font-sans p-4">
       <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-sm border border-gray-100">
         <h2 className="text-2xl font-bold text-[#333] mb-6 text-center">
