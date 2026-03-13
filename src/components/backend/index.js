@@ -7,7 +7,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use('/uploads')
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 express.static('uploads')
 // Товары
 app.get('/api/products', async (req, res) => {
@@ -59,10 +59,6 @@ app.get('/api/card/:id', async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log("Сервер запущен на порту", {PORT});
-});
 // Авторизация
 app.post('/api/register', async (req, res) => {
   try {
@@ -94,8 +90,7 @@ app.post('/api/login', async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
-});
-// Админка добавления продукта
+})
 app.post('/api/products', async (req, res) => {
   try {
     const { name, category_id, short_description, image_url, full_title, sub_title, description, composition, feeding } = req.body;
@@ -120,7 +115,7 @@ app.post('/api/products', async (req, res) => {
   }
   app.use('/uploads', express.static('uploads'));
 
-
+});
 const storage = multer.diskStorage({
   destination: './uploads/',
   filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname))
@@ -147,8 +142,15 @@ app.post('/api/products', upload.single('image'), async (req, res) => {
 });
 
 app.get('/api/users', async (req, res) => {
-  const users = await pool.query('SELECT * FROM users ORDER BY id DESC');
-  res.json(users.rows);
+  try {
+
+    const result = await pool.query('SELECT id, email, is_admin FROM users ORDER BY id DESC');
+    
+    res.status(200).json(result.rows); 
+  } catch (err) {
+    console.error("Ошибка при получении юзеров:", err.message);
+    res.status(500).json({ error: "Ошибка базы данных" });
+  }
 });
 
 app.put('/api/users/:id', async (req, res) => {
@@ -158,12 +160,17 @@ app.put('/api/users/:id', async (req, res) => {
   res.json({ success: true });
 });
 
-app.listen(5000);
+
+
+
+
+
+
+
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log("Сервер запущен на порту", {PORT});
 });
 
-// const express = require('express');
-// const cors = require('cors');
-// const multer = require('multer');
-// const path = require('path');
-// const pool = require('./db');
 

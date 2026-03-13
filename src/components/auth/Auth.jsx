@@ -25,9 +25,10 @@ export default function Auth() {
           localStorage.setItem('user', JSON.stringify(data));
           // window.location.reload();
         if (isLogin) {
-          if (data.isAdmin) {
-            navigate('/');
-          } 
+          // if (data.isAdmin) {
+          //   navigate('/');
+          // } 
+          navigate('/');
         } else {
           setIsLogin(true);
           alert('Регистрация прошла успешно! Теперь войдите.');

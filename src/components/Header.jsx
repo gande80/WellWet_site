@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <header className="flex justify-between items-center p-4 ">
-      <Link to="/" className="font-test text-4xl">WellWet</Link>
+      <Link to="/" onClick={()=>window.location.reload()} className="font-test text-4xl">WellWet</Link>
       
       <div className="flex gap-4 items-center">
         {user ? (

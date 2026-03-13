@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Header from '../Header';
 
 export default function Admin() {
   const [activeTab, setActiveTab] = useState('users'); 
@@ -9,8 +10,8 @@ export default function Admin() {
     short_description: '',
     description: '',
   });
+if (data.isAdmin === true) {
 
-  // Загрузка пользователей
   useEffect(() => {
     if (activeTab === 'users') {
       fetch('http://localhost:5000/api/users')
@@ -59,13 +60,15 @@ export default function Admin() {
   };
 
   return (
-    <div className="flex min-h-[calc(100vh-80px)] bg-white font-sans text-gray-900">
-      
 
-      <div className="flex-1 p-10 bg-gray-50/30">
+    <div className="flex min-h-[calc(100vh-80px)] flex-row-reverse  bg-white font-sans text-gray-900">
+
+
+      <div className="flex-1 p-10 bg-gray-50/30 ">
+    <Header/>
         
         {activeTab === 'add' ? (
-          <div className="max-w-xl bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+          <div className="max-w-xl bg-white p-8 rounded-2xl border border-gray-100 shadow-sm ">
             <h2 className="text-2xl font-black mb-8">Новый товар</h2>
             <form onSubmit={handleAddProduct} className="flex flex-col gap-5">
               
@@ -129,10 +132,11 @@ export default function Admin() {
                   </div>
                   <div className="w-32 text-right">
                     <button 
-                      onClick={() => toggleAdmin(u.id, u.is_admin)}
+                      onClick={() => toggleAdmin(u.id, u.is_admin )} 
+          
                       className="text-[12px] font-bold text-[#33c9db] hover:underline"
                     >
-                      {u.is_admin ? 'Удалить' : 'Сделать админом'}
+                      {u.is_admin ? 'Снять администратора' : 'Назначить администратором'}
                     </button>
                   </div>
                 </div>
@@ -143,7 +147,7 @@ export default function Admin() {
       </div>
 
 
-      <div className="w-72 border-l border-gray-100 p-6 flex flex-col gap-3 bg-white">
+      <div className="w-72 border-l border-gray-100 p-6 flex flex-col  gap-3 bg-white">
         <p className="text-[10px] font-black text-gray-300 uppercase tracking-widest px-2 mb-2">Навигация</p>
         
         <button 
@@ -169,5 +173,6 @@ export default function Admin() {
         </button>
       </div>
     </div>
-  );
+)};
+  
 }
